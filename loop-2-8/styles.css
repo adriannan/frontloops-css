@@ -1,0 +1,125 @@
+* {
+  box-sizing: border-box;
+}
+.main {
+  width: 500px;
+  border: 1em solid #222;
+  border-radius: 4em;
+  font-family: "Roboto", sans-serif;
+  position: relative;
+  overflow: hidden;
+  margin: 6em auto;
+  background-color: #f4f4f4;
+  z-index: 1;
+}
+.main::after {
+  content: "";
+  position: absolute;
+  width: 60%;
+  height: 2em;
+  background-color: #222;
+  top: 0%;
+  right: 50%;
+  z-index: 3;
+  transform: translateX(50%);
+  border-radius: 0 0 0.6em 0.6em;
+}
+
+.card {
+  position: relative;
+  padding: 3em 0;
+}
+.card::after {
+  content: "";
+  position: absolute;
+  width: 130%;
+  height: 100%;
+  background-color: cornflowerblue;
+  top: -50%;
+  right: -35%;
+  transform: rotate(30deg);
+  z-index: -1;
+}
+.card__tit {
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+}
+.card__img {
+  width: 100%;
+  padding: 0 1em;
+  margin: 0 auto;
+}
+
+.settings {
+  padding-bottom: 3em;
+  margin: 0 1em;
+  position: relative;
+  /* z-index: 1; */
+}
+.settings__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5em 0;
+}
+.settings__img {
+  flex-grow: 1;
+  /* width: 10%; */
+  margin-right: 1em;
+}
+.settings__txt {
+  flex-grow: 4;
+  /* width: 60%; */
+  width: 40%;
+}
+.settings__tit {
+  margin: 0em;
+}
+.settings__description {
+  margin: 0em;
+  color: #9d9d9d;
+}
+.settings__btn {
+  flex-grow: 2;
+  margin-right: 1em;
+  height: 2em;
+}
+.settings__switch {
+  height: 100%;
+  width: 100%;
+  border-radius: 1em;
+  display: block;
+  position: relative;
+  border: 1px solid #eaeaea;
+  background-color: #fff;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+.settings__switch:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1.75em;
+  width: 1.75em;
+  border: 1px solid #eaeaea;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: all 0.4s ease-in-out;
+}
+
+input:checked ~ .settings__switch {
+  background-color: royalblue;
+  border: 1px solid royalblue;
+  transition: all 0.4s ease-in-out;
+}
+input:checked ~ .settings__switch::after {
+  border: 1px solid royalblue;
+  transform: translateX(1.75em);
+  transition: all 0.4s ease-in-out;
+}
+input {
+  display: none;
+}
